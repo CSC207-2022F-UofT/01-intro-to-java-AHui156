@@ -1,22 +1,5 @@
-/**
- * This file contains a few exercises to familiarize you with Java.
- * You should read this file from top-to-bottom. Any tasks you are to complete
- * are labelled with TODO
- *
- * For your convenience, we have also included references to the
- * relevant readings for each task.
- */
 
-/**
- *  1. In Java, no code can exist outside of a class. Unlike Python which uses
- *    functions, all code in Java uses methods.
- *
- *    For this exercise, all of our code is within the Basics class.
- *
- *    (Relevant reading: 1.1.1. Defining classes)
- */
 public class Basics {
-
     /**
      *  2. In Python, we could have code in a block labelled:
      *        if __name__ == '__main__':
@@ -43,6 +26,7 @@ public class Basics {
         /* TODO (Task 1): Write a line of code below that prints the string
          *                Hello World!
          */
+        System.out.println("Hello World!");
 
 
 
@@ -62,6 +46,7 @@ public class Basics {
          * TODO (Task 2): Create a variable named my_variable and assign it the
          *                value 100.
          */
+        int my_variable = 100;
 
 
 
@@ -99,7 +84,10 @@ public class Basics {
          * Current count: 1
          * Current count: 0
          */
-
+        for (int i = 10; i > -1; i--) {
+            String s = String.valueOf(i);
+            System.out.println("Current count: " + s);
+        }
 
     }
 
@@ -141,9 +129,10 @@ public class Basics {
          *                you may use them if you wish.
          */
         StringBuilder ret = new StringBuilder();
-
-        // Fill in the rest of the body here
-
+        String[] words = to_split.split(" ");
+        for (String x : words){
+            ret.append(x.charAt(0));
+        }
         return ret.toString();
     }
 
@@ -163,15 +152,22 @@ public class Basics {
      */
     public static int oddSum(int[] arr) {
         int current_sum = 0;
-
         /* TODO (Task 5): Complete this method body using a for-loop.
          *                You can find the length of an array by using the
          *                .length attribute (e.g. arr.length)
          *                You can index into arrays as we do in Python
          *                (e.g. arr[i] gives you the item at index i).
          */
-
-        return current_sum;
+        int length = arr.length;
+        if(length <= 1){
+            return 0;
+        }
+        else{
+            for(int x = 1; x < length ;x += 2){
+                current_sum = current_sum + arr[x];
+            }
+            return current_sum;
+        }
     }
 
 
